@@ -1,10 +1,10 @@
 {
   "name": "etheraddresslookup",
-  "version": "1.0.0",
+  "version": "1.9.0",
   "description": "A web extension for blocking ethereum phishing websites.",
   "main": "blacklists/domains.json",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/409H/EtherAddressLookup/issues"
   },
-  "homepage": "https://github.com/409H/EtherAddressLookup#readme"
+  "homepage": "https://github.com/409H/EtherAddressLookup#readme",
+  "devDependencies": {
+    "mocha": "3.3.x"
+  }
 }
