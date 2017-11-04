@@ -1,10 +1,9 @@
-let objBrowser = chrome ? chrome : browser;
-
 class EtherAddressLookup {
 
-    constructor()
+    constructor(browser)
     {
         console.log("Init EAL");
+        this.browser = browser;
         this.setDefaultExtensionSettings();
         this.init();
     }
@@ -24,9 +23,12 @@ class EtherAddressLookup {
      */
     init()
     {
-        let objBrowser = chrome ? chrome : browser;
+        console.log('init');
         //Get the highlight option for the user
-        objBrowser.runtime.sendMessage({func: "highlight_option"}, function(objResponse) {
+        this.browser.runtime.sendMessage({func: "highlight_option"}, function(objResponse) {
+
+            console.log('highlight');
+
             if(objResponse && objResponse.hasOwnProperty("resp")) {
                 this.blHighlight = (objResponse.resp == 1);
             }
@@ -34,7 +36,10 @@ class EtherAddressLookup {
         }.bind(this));
 
         //Get the blockchain explorer for the user
-        objBrowser.runtime.sendMessage({func: "blockchain_explorer"}, function(objResponse) {
+        this.browser.runtime.sendMessage({func: "blockchain_explorer"}, function(objResponse) {
+
+            console.log('explorer');
+
             this.strBlockchainExplorer = objResponse.resp;
             ++this.intSettingsCount;
         }.bind(this));
@@ -43,6 +48,9 @@ class EtherAddressLookup {
         setTimeout(function() {
             // Needs to happen after user settings have been collected
             // and in the context of init();
+
+            console.log('dependent settings');
+
             this.setSearchAndReplaceSettings();
             this.setWarningSettings();
             this.manipulateDOM();
@@ -263,21 +271,6 @@ class EtherAddressLookup {
     }
 }
 
-window.addEventListener("load", function() {
-    let objEtherAddressLookup = new EtherAddressLookup();
-});
-
-//Send message from the extension to here.
-objBrowser.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        let objEtherAddressLookup = new EtherAddressLookup();
-        if(typeof request.func !== "undefined") {
-            if(typeof objEtherAddressLookup[request.func] == "function") {
-                objEtherAddressLookup[request.func]();
-                sendResponse({status: "ok"});
-                return true;
-            }
-        }
-        sendResponse({status: "fail"});
-    }
-);
+if(module){
+    module.exports = EtherAddressLookup;
+}
