@@ -13,7 +13,8 @@
   },
 
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
 
   "optional_permissions": [
@@ -26,7 +27,8 @@
     "js": [
       "js/app/lib/punycode.min.js",
       "js/app/lib/blockies.min.js",
-      "js/DomainBlacklist.js"
+      "js/DomainBlacklist.js",
+      "js/storage.js"
     ]
   },{
     "run_at": "document_end",
