@@ -74,28 +74,48 @@ class Storage {
         return this.get(_address);
     }
 
+    /**
+     * @name Add Label
+     * @desc Associates a label with an address, if the label name is present overwrite it
+     * @param _address
+     * @param name
+     * @param colour
+     * @return {Promise}
+     */
     addLabel(_address, name, colour)
     {
-        //TODO logic check for duplicate, just overwrite colour if name is same
         return this.get(_address).then(function(address){
-            return new Promise(function (resolve) {
-                // Have we handled this address before, if not create object
-                if(!(_address in address)){
-                    address[_address]={};
-                }
+            // Flag check for label name duplicate
+            var duplicate = false;
 
-                // Have we added any labels before, if not add an labels array
-                if(!("labels" in address[_address])){
-                    address[_address]["labels"] = [];
-                }
+            // Have we handled this address before, if not create object
+            if(!(_address in address)){
+                address[_address]={};
+            }
 
-                // Add a new label. We use array to save byte space in storage.
+            // TODO fix weird bug that adds a duplicate once, then not again.
+            // Have we added any labels before, if not add an labels array
+            if(!("labels" in address[_address])){
+                address[_address]["labels"] = [];
+            }
+            // Otherwise check we've seen this label before
+            else{
+                for(var i=0; i < address[_address]["labels"].length; i++){
+                    if(address[_address]["labels"][i][0] == name){
+                        duplicate = i;
+                    }
+                }
+            }
+
+            // If we have a duplicate overwrite the new colour
+            if(duplicate){
+                address[_address]["labels"][duplicate][1] = colour;
+            }
+            // Else, add a new label. We use array to save byte space in storage.
+            else{
                 address[_address]["labels"].push([name, colour]);
+            }
 
-                resolve(address);
-            });
-        })
-        .then(function (address) {
             this.set(address);
         }.bind(this));
     }
