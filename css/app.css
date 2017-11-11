@@ -93,3 +93,311 @@
     display: inline-block;
     margin-bottom: -0.2em;
 }
+
+/*
+Popover Styles
+@src https://github.com/twbs/bootstrap/blob/v4-dev/dist/css/bootstrap.css
+*/
+
+/*Labels*/
+@media print {
+    .ext-etheraddresslookup-label {
+        border: 1px solid #000;
+    }
+}
+
+.ext-etheraddresslookup-label {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.ext-etheraddresslookup-label:empty {
+    display: none;
+}
+
+.ext-etheraddresslookup-label-pill {
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;
+}
+
+.ext-etheraddresslookup-label-primary {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.ext-etheraddresslookup-label-primary[href]:focus, .ext-etheraddresslookup-label-primary[href]:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #0062cc;
+}
+
+.ext-etheraddresslookup-label-secondary {
+    color: #fff;
+    background-color: #868e96;
+}
+
+.ext-etheraddresslookup-label-secondary[href]:focus, .ext-etheraddresslookup-label-secondary[href]:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #6c757d;
+}
+
+.ext-etheraddresslookup-label-success {
+    color: #fff;
+    background-color: #28a745;
+}
+
+.ext-etheraddresslookup-label-success[href]:focus, .ext-etheraddresslookup-label-success[href]:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1e7e34;
+}
+
+.ext-etheraddresslookup-label-info {
+    color: #fff;
+    background-color: #17a2b8;
+}
+
+.ext-etheraddresslookup-label-info[href]:focus, .ext-etheraddresslookup-label-info[href]:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #117a8b;
+}
+
+.ext-etheraddresslookup-label-warning {
+    color: #212529;
+    background-color: #ffc107;
+}
+
+.ext-etheraddresslookup-label-warning[href]:focus, .ext-etheraddresslookup-label-warning[href]:hover {
+    color: #212529;
+    text-decoration: none;
+    background-color: #d39e00;
+}
+
+.ext-etheraddresslookup-label-danger {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+.ext-etheraddresslookup-label-danger[href]:focus, .ext-etheraddresslookup-label-danger[href]:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #bd2130;
+}
+
+.ext-etheraddresslookup-label-light {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+
+.ext-etheraddresslookup-label-light[href]:focus, .ext-etheraddresslookup-label-light[href]:hover {
+    color: #212529;
+    text-decoration: none;
+    background-color: #dae0e5;
+}
+
+.ext-etheraddresslookup-label-dark {
+    color: #fff;
+    background-color: #343a40;
+}
+
+.ext-etheraddresslookup-label-dark[href]:focus, .ext-etheraddresslookup-label-dark[href]:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1d2124;
+}
+
+/*Popovers*/
+
+.ext-etheraddresslookup-popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    display: block;
+    max-width: 276px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: 0.875rem;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+}
+
+.ext-etheraddresslookup-popover .arrow {
+    position: absolute;
+    display: block;
+    width: 0.8rem;
+    height: 0.4rem;
+}
+
+.ext-etheraddresslookup-popover .arrow::before,
+.ext-etheraddresslookup-popover .arrow::after {
+    position: absolute;
+    display: block;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.ext-etheraddresslookup-popover .arrow::before {
+    content: "";
+    border-width: 0.8rem;
+}
+
+.ext-etheraddresslookup-popover .arrow::after {
+    content: "";
+    border-width: 0.8rem;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-top, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="top"] {
+    margin-bottom: 0.8rem;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-top .arrow, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="top"] .arrow {
+    bottom: 0;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-top .arrow::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="top"] .arrow::before,
+.ext-etheraddresslookup-popover.bs-popover-top .arrow::after, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="top"] .arrow::after {
+    border-bottom-width: 0;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-top .arrow::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="top"] .arrow::before {
+    bottom: -0.8rem;
+    margin-left: -0.8rem;
+    border-top-color: rgba(0, 0, 0, 0.25);
+}
+
+.ext-etheraddresslookup-popover.bs-popover-top .arrow::after, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="top"] .arrow::after {
+    bottom: calc((0.8rem - 1px) * -1);
+    margin-left: -0.8rem;
+    border-top-color: #fff;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-right, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="right"] {
+    margin-left: 0.8rem;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-right .arrow, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="right"] .arrow {
+    left: 0;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-right .arrow::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="right"] .arrow::before,
+.ext-etheraddresslookup-popover.bs-popover-right .arrow::after, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="right"] .arrow::after {
+    margin-top: -0.8rem;
+    border-left-width: 0;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-right .arrow::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="right"] .arrow::before {
+    left: -0.8rem;
+    border-right-color: rgba(0, 0, 0, 0.25);
+}
+
+.ext-etheraddresslookup-popover.bs-popover-right .arrow::after, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="right"] .arrow::after {
+    left: calc((0.8rem - 1px) * -1);
+    border-right-color: #fff;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-bottom, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="bottom"] {
+    margin-top: 0.8rem;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-bottom .arrow, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="bottom"] .arrow {
+    top: 0;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-bottom .arrow::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="bottom"] .arrow::before,
+.ext-etheraddresslookup-popover.bs-popover-bottom .arrow::after, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="bottom"] .arrow::after {
+    margin-left: -0.8rem;
+    border-top-width: 0;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-bottom .arrow::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="bottom"] .arrow::before {
+    top: -0.8rem;
+    border-bottom-color: rgba(0, 0, 0, 0.25);
+}
+
+.ext-etheraddresslookup-popover.bs-popover-bottom .arrow::after, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="bottom"] .arrow::after {
+    top: calc((0.8rem - 1px) * -1);
+    border-bottom-color: #fff;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-bottom .ext-etheraddresslookup-popover-header::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="bottom"] .ext-etheraddresslookup-popover-header::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: 20px;
+    margin-left: -10px;
+    content: "";
+    border-bottom: 1px solid #f7f7f7;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-left, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="left"] {
+    margin-right: 0.8rem;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-left .arrow, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="left"] .arrow {
+    right: 0;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-left .arrow::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="left"] .arrow::before,
+.ext-etheraddresslookup-popover.bs-popover-left .arrow::after, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="left"] .arrow::after {
+    margin-top: -0.8rem;
+    border-right-width: 0;
+}
+
+.ext-etheraddresslookup-popover.bs-popover-left .arrow::before, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="left"] .arrow::before {
+    right: -0.8rem;
+    border-left-color: rgba(0, 0, 0, 0.25);
+}
+
+.ext-etheraddresslookup-popover.bs-popover-left .arrow::after, .ext-etheraddresslookup-popover.bs-popover-auto[x-placement^="left"] .arrow::after {
+    right: calc((0.8rem - 1px) * -1);
+    border-left-color: #fff;
+}
+
+.ext-etheraddresslookup-popover-header {
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: inherit;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ebebeb;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+}
+
+.ext-etheraddresslookup-popover-header:empty {
+    display: none;
+}
+
+.ext-etheraddresslookup-popover-body {
+    padding: 0.5rem 0.75rem;
+    color: #212529;
+}
+
+/*@TODO add Modal CSS*/
