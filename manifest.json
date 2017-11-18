@@ -33,7 +33,10 @@
   },{
     "run_at": "document_end",
     "matches": ["http://*/*", "https://*/*"],
-    "js": ["js/DomManipulator.js"],
+    "js": [
+      "js/DomManipulator.js",
+      "js/app/lib/nat-twbs-modal-popover.js"
+    ],
     "css": ["css/app.css"]
   }],
 
