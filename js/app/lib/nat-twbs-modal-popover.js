@@ -9,7 +9,7 @@
     } else {
         // Browser globals (root is window)
         var bsn = factory();
-        root.Popover = bsn.Popover;
+        root.ext_etheraddresslookup_Popover = bsn.ext_etheraddresslookup_Popover;
         root.Tab = bsn.Tab;
     }
 }(this, function () {
@@ -26,7 +26,7 @@
         dataToggle    = 'data-toggle',
 
         // components
-        stringPopover   = 'Popover',
+        stringPopover   = 'ext_etheraddresslookup_Popover',
         stringTab       = 'Tab',
 
         // options DATA API
@@ -266,7 +266,7 @@
 
     // POPOVER DEFINITION
     // ==================
-    var Popover = function( element, options ) {
+    var ext_etheraddresslookup_Popover = function( element, options ) {
 
         // initialization element
         element = queryElement(element);
@@ -444,7 +444,7 @@
 
     // POPOVER DATA API
     // ================
-    initializeDataAPI(stringPopover, Popover, DOC[querySelectorAll]('['+dataToggle+'="ext-etheraddresslookup-popover"]'));
+    initializeDataAPI(stringPopover, ext_etheraddresslookup_Popover, DOC[querySelectorAll]('['+dataToggle+'="ext-etheraddresslookup-popover"]'));
 
 
     /* Native Javascript for Bootstrap 4 | Tab
@@ -593,7 +593,7 @@
     initializeDataAPI(stringTab, Tab, DOC[querySelectorAll]('['+dataToggle+'="tab"]'));
 
     return {
-        Popover: Popover,
+        ext_etheraddresslookup_Popover: ext_etheraddresslookup_Popover,
         Tab: Tab
     };
 }));
