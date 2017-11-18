@@ -213,46 +213,39 @@
 
 /*Popovers*/
 
-
-*,
-*::before,
-*::after {
+.ext-etheraddresslookup-popover *,
+.ext-etheraddresslookup-popover *::before,
+.ext-etheraddresslookup-popover *::after {
     box-sizing: inherit;
 }
 
-.fade {
+.ext-etheraddresslookup-popover.fade {
     opacity: 0;
     transition: opacity 0.15s linear;
 }
 
-.fade.show {
+.ext-etheraddresslookup-popover.fade.show {
     opacity: 1;
 }
 
-h3 {
+.ext-etheraddresslookup-popover h3 {
     orphans: 3;
     widows: 3;
 }
 
-h3 {
+.ext-etheraddresslookup-popover h3 {
     page-break-after: avoid;
 }
 
-h3 {
+.ext-etheraddresslookup-popover h3 {
     margin-top: 0;
     margin-bottom: .5rem;
 }
 
-h3, .h3 {
-    margin-bottom: 0.5rem;
+.ext-etheraddresslookup-popover h3, .h3 {
     font-family: inherit;
     font-weight: 500;
     line-height: 1.1;
-    color: inherit;
-}
-
-h3, .h3 {
-    font-size: 1.75rem;
 }
 
 .ext-etheraddresslookup-popover .close {
