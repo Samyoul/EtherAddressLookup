@@ -486,7 +486,11 @@
     flex-wrap: wrap;
     padding-left: 0;
     margin-bottom: 0;
-    list-style: none;
+    list-style: none !important;
+}
+
+.ext-etheraddresslookup-nav li {
+    list-style: none !important;
 }
 
 .ext-etheraddresslookup-nav-link {
