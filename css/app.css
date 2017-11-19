@@ -478,57 +478,89 @@
     color: #212529;
 }
 
-[tabindex="-1"]:focus {
-    outline: 0 !important;
+/*Tabs*/
+.ext-etheraddresslookup-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 }
 
-a:not([href]):not([tabindex]) {
-    color: inherit;
+.ext-etheraddresslookup-nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.ext-etheraddresslookup-nav-link:focus,
+.ext-etheraddresslookup-nav-link:hover {
     text-decoration: none;
 }
 
-a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
-    color: inherit;
-    text-decoration: none;
+.ext-etheraddresslookup-nav-link.disabled {
+    color: #868e96;
 }
 
-a:not([href]):not([tabindex]):focus {
-    outline: 0;
-}
-
-.nav-tabs {
+.ext-etheraddresslookup-nav-tabs {
     border-bottom: 1px solid #dee2e6;
 }
 
-.nav-tabs .nav-item {
+.ext-etheraddresslookup-nav-tabs .ext-etheraddresslookup-nav-item {
     margin-bottom: -1px;
 }
 
-.nav-tabs .nav-link {
+.ext-etheraddresslookup-nav-tabs .ext-etheraddresslookup-nav-link {
     border: 1px solid transparent;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
 }
 
-.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+.ext-etheraddresslookup-nav-tabs .ext-etheraddresslookup-nav-link:focus,
+.ext-etheraddresslookup-nav-tabs .ext-etheraddresslookup-nav-link:hover {
     border-color: #e9ecef #e9ecef #dee2e6;
 }
 
-.nav-tabs .nav-link.disabled {
+.ext-etheraddresslookup-nav-tabs .ext-etheraddresslookup-nav-link.disabled {
     color: #868e96;
     background-color: transparent;
     border-color: transparent;
 }
 
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
+.ext-etheraddresslookup-nav-tabs .ext-etheraddresslookup-nav-link.active,
+.ext-etheraddresslookup-nav-tabs .ext-etheraddresslookup-nav-item.show .ext-etheraddresslookup-nav-link {
     color: #495057;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
 }
 
-.nav-tabs .dropdown-menu {
+.ext-etheraddresslookup-nav-tabs .dropdown-menu {
     margin-top: -1px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.ext-etheraddresslookup-tab-content > .ext-etheraddresslookup-tab-pane {
+    display: none;
+}
+
+.ext-etheraddresslookup-tab-content > .active {
+    display: block;
+}
+
+.ext-etheraddresslookup-tab-content .fade {
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+
+.ext-etheraddresslookup-tab-content .fade.show {
+    opacity: 1;
+}
+
+.ext-etheraddresslookup-tab-content.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
 }

@@ -10,7 +10,7 @@
         // Browser globals (root is window)
         var bsn = factory();
         root.ext_etheraddresslookup_Popover = bsn.ext_etheraddresslookup_Popover;
-        root.Tab = bsn.Tab;
+        root.ext_etheraddresslookup_Tab = bsn.ext_etheraddresslookup_Tab;
     }
 }(this, function () {
 
@@ -27,7 +27,7 @@
 
         // components
         stringPopover   = 'ext_etheraddresslookup_Popover',
-        stringTab       = 'Tab',
+        stringTab       = 'ext_etheraddresslookup_Tab',
 
         // options DATA API
         dataHeight        = 'data-height',
@@ -452,7 +452,7 @@
 
     // TAB DEFINITION
     // ==============
-    var Tab = function( element, options ) {
+    var ext_etheraddresslookup_Tab = function( element, options ) {
 
         // initialization element
         element = queryElement(element);
@@ -461,7 +461,8 @@
         var heightData = element[getAttribute](dataHeight),
 
             // strings
-            component = 'tab', height = 'height', float = 'float', isAnimating = 'isAnimating';
+            component = 'ext-etheraddresslookup-tab',
+            height = 'height', float = 'float', isAnimating = 'isAnimating';
 
         // set options
         options = options || {};
@@ -469,7 +470,7 @@
 
         // bind, event targets
         var self = this, next,
-            tabs = getClosest(element,'.nav'),
+            tabs = getClosest(element,'.ext-etheraddresslookup-nav'),
             tabsContentContainer = false,
             dropdown = tabs && queryElement('.dropdown-toggle',tabs),
             activeTab, activeContent, nextContent, containerHeight, equalContents, nextHeight,
@@ -590,10 +591,10 @@
 
     // TAB DATA API
     // ============
-    initializeDataAPI(stringTab, Tab, DOC[querySelectorAll]('['+dataToggle+'="tab"]'));
+    initializeDataAPI(stringTab, ext_etheraddresslookup_Tab, DOC[querySelectorAll]('['+dataToggle+'="ext-etheraddresslookup-tab"]'));
 
     return {
         ext_etheraddresslookup_Popover: ext_etheraddresslookup_Popover,
-        Tab: Tab
+        ext_etheraddresslookup_Tab: ext_etheraddresslookup_Tab
     };
 }));
