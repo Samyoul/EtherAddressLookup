@@ -568,3 +568,11 @@
     overflow: hidden;
     transition: height 0.35s ease;
 }
+
+#ext-etheraddresslookup-new-labels option {
+    color:#ffffff;
+}
+
+#ext-etheraddresslookup-new-labels button {
+    width:100%;
+}
