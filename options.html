@@ -81,9 +81,19 @@
                 <div id="ext-etheraddresslookup-new-labels">
 
                     <p><b>New Label :</b></p>
-                    <form>
-                        <input class="form-control" type="text" name="ext-etheraddresslookup-label-name" placeholder="Label Name">
-                        <select class="form-control" name="ext-etheraddresslookup-label-colour">
+                    <form id="ext-etheraddresslookup-new-label-form">
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="ext-etheraddresslookup-label-name"
+                            id="ext-etheraddresslookup-label-name"
+                            placeholder="Label Name"
+                        />
+                        <select
+                            class="form-control"
+                            name="ext-etheraddresslookup-label-colour"
+                            id="ext-etheraddresslookup-label-colour"
+                        >
                             <option style="background-color: #dc3545;" value="dc3545">Red</option>
                             <option style="background-color: #ffad13;" value="ffad13">Orange</option>
                             <option style="background-color: #ffdc00;" value="ffdc00">Yellow</option>
@@ -136,6 +146,7 @@
 <script src="js/app/toggleBookmarks.js"></script>
 <script src="js/app/lib/nat-twbs-modal-popover.js"></script>
 <script src="js/storage.js"></script>
+<script src="js/labels.js"></script>
 
 <script src="js/options.js"></script>
 </body>

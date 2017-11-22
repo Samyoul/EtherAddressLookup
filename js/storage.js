@@ -31,11 +31,15 @@ class Storage {
      */
     set(dataObject)
     {
-        this.scope.set(dataObject, function() {
-            if(chrome.runtime.lastError){
-                console.log(chrome.runtime.lastError);
-            }
-        })
+        return new Promise(function(resolve, reject){
+            this.scope.set(dataObject, function() {
+                if(chrome.runtime.lastError){
+                    reject(chrome.runtime.lastError);
+                } else {
+                    resolve();
+                }
+            })
+        }.bind(this));
     }
 
     /**

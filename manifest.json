@@ -35,6 +35,7 @@
     "matches": ["http://*/*", "https://*/*"],
     "js": [
       "js/DomManipulator.js",
+      "js/labels.js",
       "js/app/lib/nat-twbs-modal-popover.js"
     ],
     "css": ["css/app.css"]
