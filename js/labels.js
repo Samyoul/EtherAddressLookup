@@ -83,30 +83,9 @@ function labelTemplate(id, name, colour) {
     return `<span class='ext-etheraddresslookup-label' data-ext-etheraddresslookup-id="${id}" style="color:white;background-color:#${colour};">${name}</span><br/>`;
 }
 
-storage.remove('labels');
+//storage.remove('labels');
 
-label_form.addEventListener('submit', function(element){
-    element.preventDefault();
-
-    var name = document.getElementById('ext-etheraddresslookup-label-name');
-    var colour = document.getElementById('ext-etheraddresslookup-label-colour');
-
-    console.log(name.value);
-    console.log(colour.value);
-
-    labels.create(name.value, colour.value)
-        .then(function(){
-            labels.retrieve()
-                .then(function(labels){console.log('updated labels from storage', labels)})
-                .then(function(){storage.get(null).then((data) => {console.log('all the storage', data)})})
-        }).then(function () {
-            labels.remove(name.value)
-                .then(function(){storage.get(null).then((data) => {console.log('all the storage', data)})})
-        });
-
-});
-
-window.addEventListener('load', function() {
+function updateLabelsList(){
     labels.retrieve().then(function(labels){
 
         var HTMLLabels = '';
@@ -118,4 +97,21 @@ window.addEventListener('load', function() {
 
         existing_labels.innerHTML = HTMLLabels;
     });
+}
+
+label_form.addEventListener('submit', function(element){
+    element.preventDefault();
+
+    var name = document.getElementById('ext-etheraddresslookup-label-name');
+    var colour = document.getElementById('ext-etheraddresslookup-label-colour');
+
+    labels.create(name.value, colour.value)
+        .then(function(){
+            updateLabelsList()
+        });
+
+});
+
+window.addEventListener('load', function() {
+    updateLabelsList();
 });
