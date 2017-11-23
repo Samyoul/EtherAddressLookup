@@ -3,6 +3,7 @@ class Storage {
     constructor(scope = chrome.storage.sync)
     {
         this.scope = scope;
+        this.labels = 'labels';
     }
 
     /**
@@ -28,6 +29,7 @@ class Storage {
      * @name set
      * @desc Sets multiple items.
      * @param {Object} dataObject
+     * @return {Promise}
      */
     set(dataObject)
     {
@@ -46,27 +48,33 @@ class Storage {
      * @name remove
      * @desc Removes one or more items from storage.
      * @param {String | Array} key
+     * @return {Promise}
      */
     remove(key)
     {
-        this.scope.remove(key, function() {
-            if(chrome.runtime.lastError){
-                console.log(chrome.runtime.lastError);
-            }
-        })
+        return new Promise(function(resolve, reject){
+            this.scope.remove(key, function() {
+                if(chrome.runtime.lastError){
+                    console.log(chrome.runtime.lastError);
+                }
+            })
+        }.bind(this));
     }
 
     /**
      * @name clear
      * @desc Removes all items from storage.
+     * @return {Promise}
      */
     clear()
     {
-        this.scope.clear(function() {
-            if(chrome.runtime.lastError){
-                console.log(chrome.runtime.lastError);
-            }
-        })
+        return new Promise(function(resolve, reject){
+            this.scope.clear(function() {
+                if(chrome.runtime.lastError){
+                    console.log(chrome.runtime.lastError);
+                }
+            })
+        }.bind(this));
     }
 
     /**
@@ -86,7 +94,7 @@ class Storage {
      * @param colour
      * @return {Promise}
      */
-    addLabel(_address, name, colour)
+    _addLabel(_address, name, colour)
     {
         return this.get(_address).then(function(address){
             // Flag check for label name duplicate
@@ -123,19 +131,9 @@ class Storage {
             this.set(address);
         }.bind(this));
     }
-
-    removeLabel()
-    {
-
-    }
-
-    clearLabel()
-    {
-
-    }
 }
 
-var storage = new Storage();
+`var storage = new Storage();
 
 //storage.clear();
 storage.get(null).then((labels) => {console.log('get null');console.log(labels)});
@@ -143,4 +141,4 @@ storage.addLabel('0x123', "Joe Bloggs", "eaeaea")
     .then(function(){storage.addLabel('0x123', "smelly", "808080")}.bind(storage));
 storage.addLabel('0x321', "a big boat", "adadad");
 storage.addLabel('0x321', "Jupiter", "efefef");
-storage.get(null).then((labels) => {console.log('get null');console.log(labels)});
+storage.get(null).then((labels) => {console.log('get null');console.log(labels)});`;
