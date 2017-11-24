@@ -27,7 +27,7 @@ class Addresses extends Storage {
      */
     remove(_address)
     {
-        return Storage.remove(_address);
+        return parent.remove(_address);
     }
 
     /**
