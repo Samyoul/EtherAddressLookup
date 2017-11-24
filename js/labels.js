@@ -41,7 +41,8 @@ class Labels extends Storage {
     remove(_index)
     {
         return this.retrieve().then(function (labels) {
-            delete labels[parent.labels.labels][_index];
+            // Remove with splice, we could use delete but it leaves lots of indexes of value null
+            labels[parent.labels.labels].splice(parseInt(_index), 1);
             this.update(labels);
         }.bind(this));
     }
@@ -79,23 +80,53 @@ var storage = new Storage();
 var label_form = document.getElementById('ext-etheraddresslookup-new-label-form');
 var existing_labels = document.getElementById('ext-etheraddresslookup-current-labels');
 
+//storage.remove('labels');
+
 function labelTemplate(id, name, colour) {
-    return `<span class='ext-etheraddresslookup-label' data-ext-etheraddresslookup-id="${id}" style="color:white;background-color:#${colour};">${name}</span><br/>`;
+
+    var font_colour = 'white';
+    if(colour == "ffffff"){
+        font_colour = '';
+    }
+
+    return `<span 
+        class='ext-etheraddresslookup-label'
+        style="color:${font_colour};background-color:#${colour};">
+            ${name}
+        </span>
+        &nbsp;
+        <span style="float:right; cursor:pointer;" class="ext-etheraddresslookup-label-delete" data-ext-etheraddresslookup-label-id="${id}">x</span>
+        <br/>`;
 }
 
-//storage.remove('labels');
+function addQuickLabelDeleteEvent() {
+    var labelsElements = document.getElementsByClassName("ext-etheraddresslookup-label-delete");
+
+    Array.from(labelsElements).forEach(function(element) {
+        element.addEventListener('click', function (event) {
+            var id = event.target.getAttribute('data-ext-etheraddresslookup-label-id');
+            labels.remove(id).then(function(){
+                updateLabelsList();
+            });
+        });
+    });
+}
 
 function updateLabelsList(){
     labels.retrieve().then(function(labels){
-
         var HTMLLabels = '';
         for (var index in labels.labels){
             if (labels.labels.hasOwnProperty(index)){
+                if(labels.labels[index] == null){
+                    continue
+                }
+
                 HTMLLabels += labelTemplate(index, labels.labels[index][0], labels.labels[index][1]);
             }
         }
 
         existing_labels.innerHTML = HTMLLabels;
+        addQuickLabelDeleteEvent();
     });
 }
 
